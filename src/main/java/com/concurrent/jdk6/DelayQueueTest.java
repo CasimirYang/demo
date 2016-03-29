@@ -14,7 +14,7 @@ public class DelayQueueTest {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         DelayQueue delayQueue = new DelayQueue();
-        DelayedDemo delayedDemo = new DelayedDemo(5000); //deplay 设置的不是expire 时间， 设置的是延迟多久才可以用的时间
+        DelayedDemo delayedDemo = new DelayedDemo(5000); //deplay 设置的不是expire 时间， 设置的是延迟多久才可以执行的时间
         delayQueue.put(delayedDemo);
         System.out.println(delayQueue.take()); // 五秒后才可以使用
         System.out.println(delayQueue.take()); //block
