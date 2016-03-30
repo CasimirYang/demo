@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--bean的别名，使用,/;/空格 分隔都是可以是-->
+       <bean id="SomeBeanId" name="SomeBeanName,SomeBeanName2;SomeBeanName3 SomeBeanName4" class="com.spring.baseIOC.xml.SomeBean" >
+           <property name="someBean" ref="toName" />  <!--setter注入 --> <!--ref 指向 id,name 都可以, 指向name 的时候如果匹配到两个相同name的bean 就出错-->
+        </bean>
+
+    <!-- 给定义之外的bean 设置别名-->
+    <alias name="fromStringValue" alias="toName"/>
+
+    <bean id="fromStringValue" name="fromStringValue" class="java.lang.String" >
+        <constructor-arg type="java.lang.String" value="stringValue"/>  <!--构造注入-->
+    </bean>
+
+
+    <!--内部bean 更加直观-->
+    <bean id="innerBean" class="com.spring.baseIOC.xml.SomeBean" >
+        <property name="someBean" ref="toName"  />
+        <property name="someBeanObj">
+            <bean class="com.spring.baseIOC.xml.SomeBean">
+                <property name="someBean" value="innerBeanValue" />
+            </bean>
+        </property>
+        <property name="someBeanObj.someBeanObj">  <!--在设置bean属性时，name可以使用复合或者内嵌属性-->
+            <bean class="com.spring.baseIOC.xml.SomeBean">
+                <property name="someBean" value="inner_innerBeanValue" />
+            </bean>
+        </property>
+     <!--   <property name="someBeanObj.someBeanObj.someBeanObj">   第三层
+            <bean class="com.spring.baseIOC.xml.SomeBean">
+                <property name="someBean" value="inner_inner_innerBeanValue" />
+            </bean>
+        </property>-->
+    </bean>
+
+    <!--    非静态的内部类默认的构造函数有一个参数，这个参数指向其外部类的实例，所以我们需要给此内部类的bean添加constructor-arg节点，并指向外部类-->
+    <bean id="innerClassId" class="com.spring.baseIOC.xml.SomeBean$innerClass" > <!-- 内部类的bean $字符 -->
+        <constructor-arg ref="SomeBeanId"></constructor-arg>
+    </bean>
+
+</beans>
