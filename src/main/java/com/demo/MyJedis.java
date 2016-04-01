@@ -9,7 +9,7 @@ import java.util.List;
 public class MyJedis {
 
     public static void main(String[] args) {
-        List<String> list =  new ArrayList<>();
+        List<String> list =  new ArrayList();
         System.out.print("1");
         for (String item : list){
             System.out.print(item);

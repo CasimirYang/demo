@@ -24,11 +24,16 @@
                 <property name="someBean" value="innerBeanValue" />
             </bean>
         </property>
-        <property name="someBeanObj.someBeanObj">
+        <property name="someBeanObj.someBeanObj">  <!--在设置bean属性时，name可以使用复合或者内嵌属性-->
             <bean class="com.spring.baseIOC.xml.SomeBean">
                 <property name="someBean" value="inner_innerBeanValue" />
             </bean>
         </property>
+     <!--   <property name="someBeanObj.someBeanObj.someBeanObj">   第三层
+            <bean class="com.spring.baseIOC.xml.SomeBean">
+                <property name="someBean" value="inner_inner_innerBeanValue" />
+            </bean>
+        </property>-->
     </bean>
 
     <!--    非静态的内部类默认的构造函数有一个参数，这个参数指向其外部类的实例，所以我们需要给此内部类的bean添加constructor-arg节点，并指向外部类-->

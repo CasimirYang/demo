@@ -1,5 +1,8 @@
 Manifest-Version: 1.0
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: groupId
 Build-Jdk: 1.7.0_51
 Built-By: casimiryang
 Created-By: IntelliJ IDEA
+Main-Class: ${start-class}
 
