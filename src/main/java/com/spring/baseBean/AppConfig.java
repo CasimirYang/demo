@@ -1,7 +1,7 @@
 package com.spring.baseBean;
 
 /**
- * //所有的@Configuration类在启动时，都是通过CGLIB创建一个子类。
+ * //所有的@Configuration类在启动时，都是通过CGLIB创建一个子类。所以@Configuration 修饰的类不可以是final 的. XML 配置方式bean 可以。
  * 在调用父类的方法并创建一个新的实例之前，子类中的方法首先检查是否缓存过。
  * 该行为也许有些不同，这得根据具体的bean的作用域。这里讨论的是singleton单例作用域。
  */

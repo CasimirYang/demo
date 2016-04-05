@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-    <!--抽象的bean 必需指定abstract = true， 否者这里实例化报错-->
+    <!--抽象的bean 可以不指定class, 但必需指定abstract = true， 否者这里实例化报错-->
     <bean id="abstractBean" abstract="true">
         <property name="list">
             <list>

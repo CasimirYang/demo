@@ -5,9 +5,11 @@
        xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+       <import resource="baseConfig.xml" />
+
        <!--注入有setter 注入和构造注入两种-->
        <bean id="SomeBeanId" name="SomeBeanName" class="com.spring.baseIOC.xml.SomeBean" >
-              <property name="someBean" ref="toName"  />  <!--setter注入 需要set 方法 -->  <!--toName 是另一个配置文件的bean 4.0不用额外配置，IDE 问题-->
+              <property name="someBean" ref="toName"  />  <!--setter注入 需要set 方法 -->  <!--toName 是另一个配置文件的bean 4.0不用额外配置，IDE 问题. 也可以用import 引进来-->
        </bean>
 
 
