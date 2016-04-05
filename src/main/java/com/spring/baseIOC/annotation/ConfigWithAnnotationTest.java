@@ -3,17 +3,15 @@ package com.spring.baseIOC.annotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by casimiryang on 2016/3/29.
  */
 
-
-@ComponentScan   //扫描当前类下的组件 如bean
+@Configuration
+@ComponentScan("com.spring.baseIOC")   //扫描当前类下的组件 如bean
 public class ConfigWithAnnotationTest {
 
     @Bean   //修饰方法
@@ -22,6 +20,7 @@ public class ConfigWithAnnotationTest {
         return new String("cvszz");
     }
 
+    @Scope("prototype")
     @Bean(name = "another_bean")
     @Qualifier("someBean2")
     String method2(){
@@ -37,7 +36,7 @@ public class ConfigWithAnnotationTest {
     private SomeBeanAnnotation someBean2;
 
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(ConfigWithAnnotationTest.class);
+        ApplicationContext context = new AnnotationConfigApplicationContext(ConfigWithAnnotationTest.class,SomeBeanAnnotation.class);
         ConfigWithAnnotationTest thisClass = context.getBean(ConfigWithAnnotationTest.class);
         System.out.println(thisClass.someBean.getSomeBean());
         System.out.println(context.getBean("another_bean"));

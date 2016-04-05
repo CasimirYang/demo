@@ -17,7 +17,7 @@ import java.util.ArrayList;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MyConllectionTest {
 
-    @Autowired
+    @Autowired(required = false)
     @Qualifier("collection")
     private MyCollection myCollection;
 

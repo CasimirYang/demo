@@ -3,7 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!--单例的bean 引用非单例的bean， 每次当A调用B时，都会去get bean B, 所以如果bean B 是prototype,那每次调用都会创建一个B-->
+<!--单例的bean 引用非单例的bean，
+如果是属性的注入，那只有一个bean B.
+方法的注入：每次当A调用B时，都会去get bean B, 所以如果bean B 是prototype,那每次调用都会创建一个B-->
 
        <!--单例的bean A-->
        <bean id="single_A" class="com.spring.lookup_method.UserManager" >

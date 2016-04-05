@@ -1,5 +1,8 @@
 package com.spring.collection;
 
+import org.springframework.context.LifecycleProcessor;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -8,7 +11,9 @@ import java.util.Set;
 /**
  * Created by casimiryang on 2016/3/30.
  */
-public class MyCollection {
+
+@Repository
+public class MyCollection  implements LifecycleProcessor {
     List<Integer> list;
     Properties properties;
     Map<String,String> map;
@@ -57,5 +62,34 @@ public class MyCollection {
         this.set = set;
     }
 
+    @Override
+    public void start() {
+        System.out.println("--------------start");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("--------------stop");
+    }
+
+    @Override
+    public boolean isRunning() {
+        System.out.println("-------------------isRunning");
+        return false;
+    }
+
+    @Override
+    public void onRefresh() {
+        System.out.println("-------------------onRefresh");
+    }
+
+    @Override
+    public void onClose() {
+        System.out.println("-------------------onClose");
+    }
+
+    public void init(){
+    System.out.println("call init method");
+}
 
 }
