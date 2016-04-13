@@ -1,6 +1,5 @@
 package com.designpattern.strategy;
 
-
 public class Boy {
     IStrategy iStrategy;
 
