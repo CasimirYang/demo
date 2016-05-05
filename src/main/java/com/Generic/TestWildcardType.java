@@ -37,12 +37,12 @@ public class TestWildcardType<E> {
         TestWildcardType<Number> test = new TestWildcardType<>();
         test.pushAll(new ArrayList<Number>(1));
         //Number 可以放进去Integer 却放不进去,有些不合理
-        test.pushAll(new ArrayList<Integer>(1));  //ArrayList<Integer>不是ArrayList<Number> 子类型,所以这里有错
+        test.pushAll(new ArrayList<Integer>(1));  //error ArrayList<Integer>不是ArrayList<Number> 子类型,所以这里有错
         test.pushAllWithWildcard(new ArrayList<Integer>(1)); //使用有限制的通配符可以有更好的适应性.
 
         //想拿出来放到ArrayList<Object> 失败
         test.getAll(new ArrayList<Number>(1));
-        test.getAll(new ArrayList<Object>(1));
+        test.getAll(new ArrayList<Object>(1)); //error
         test.getAllWithWildcard(new ArrayList<Object>(1));
     }
 }
