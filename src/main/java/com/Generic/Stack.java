@@ -1,4 +1,4 @@
-package com.Generic;
+package com.generic;
 
 import java.util.EmptyStackException;
 

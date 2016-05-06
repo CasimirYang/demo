@@ -1,4 +1,4 @@
-package com.Generic;
+package com.generic;
 
 /**
  * 这里 type erasure后MyNode 其实没有覆写到Node的setData 方法，一个参数是Integer,一个是String, 是重载，

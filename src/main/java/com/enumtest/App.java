@@ -1,4 +1,4 @@
-package com.demo;
+package com.enumtest;
 
 /**
  *
@@ -11,4 +11,6 @@ public class App {
     public static void main(String args[]){
         MyEnum.RRD.fun();
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.Generic;
+package com.generic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public class Subtyping {
 
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
-        fun(list,new Integer(1));   //error, List<String> 不是List<Object>子类,他们没有任何关系
+      //  fun(list,new Integer(1));   //error, List<String> 不是List<Object>子类,他们没有任何关系
         fun2(list,new Integer(1));  //没有类型检查,List<String> 是List 子类,所以可以
         fun3(list,new Integer(1));  //List<String>的父类是List<?>
     }
@@ -23,9 +23,9 @@ public class Subtyping {
         return list;
     }
     static List fun3(List<?> list, Object obj){
-        list.add(obj);  //error, List<?> 类型是未知的,不可以直接操作子元素
+     //   list.add(obj);  //error, List<?> 类型是未知的,不可以直接操作子元素
         return list;
     }
 }
 
-}
+

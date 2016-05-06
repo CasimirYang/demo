@@ -1,9 +1,6 @@
-package com.Generic;
+package com.generic;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 /**
  * 泛型方法

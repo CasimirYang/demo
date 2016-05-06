@@ -1,4 +1,4 @@
-package com.demo;
+package com.enumtest;
 
 
 public enum MyEnum {
