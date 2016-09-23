@@ -29,6 +29,11 @@
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="destinationName" value="SendToRecv"/>
         <property name="messageListener" ref="messageListenerAdapter"/>
+        <!--<property name="sessionTransacted" value="true"/>-->
+        <!--当给消息监听容器指定了transactionManager时，消息监听容器将忽略sessionTransacted的值-->
+        <property name="transactionManager" ref="jtaTransactionManager"/>
     </bean>
+
+<bean id="jtaTransactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>
 
 </beans>

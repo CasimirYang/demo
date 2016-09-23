@@ -31,6 +31,7 @@
         <property name="defaultDestination" ref="defaultDestination" />
     </bean>
 
+
     <bean id="messageSender" class="com.activeMQ.spring.MessageSender">
         <property name="jmsTemplate" ref="jmsTemplate" />
     </bean>

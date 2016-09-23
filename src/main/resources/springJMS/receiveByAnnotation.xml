@@ -28,6 +28,7 @@
           class="org.springframework.jms.config.DefaultJmsListenerContainerFactory">
         <property name="connectionFactory" ref="connectionFactory" />
         <property name="concurrency" value="3-10"/>
+        <property name="sessionTransacted" value="true"/>
         <!--It means at lease 3 beans instances are waiting for the incoming message. It can process 10 incoming messages in parallel.-->
     </bean>
 

@@ -29,6 +29,7 @@
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="destinationName" value="SendToRecv"/>
         <property name="messageListener" ref="messageListenerAdapter"/>
+        <property name="sessionTransacted" value="true"/>
     </bean>
 
 </beans>
