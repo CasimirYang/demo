@@ -60,7 +60,7 @@ public class MessageSender {
         jmsMessageSender.send();
 
         // send to a code specified destination
-        Queue queue = new ActiveMQQueue("AnotherDest");
+        Queue queue = new ActiveMQQueue("SendToRecv");
         jmsMessageSender.send(queue, "hello Another Message");
 
 

@@ -19,21 +19,12 @@
         <constructor-arg ref="jmsFactory" />
     </bean>
 
-    <bean id="messageListenerAdapter"
-          class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
-        <constructor-arg ref="receiveMessageByAdapter" />
-    </bean>
 
     <!-- JMS Receive，Define MessageListenerContainer   -->
     <bean id = "messageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="destinationName" value="SendToRecv"/>
-        <property name="messageListener" ref="messageListenerAdapter"/>
-        <!--<property name="sessionTransacted" value="true"/>-->
-        <!--当给消息监听容器指定了transactionManager时，消息监听容器将忽略sessionTransacted的值-->
-        <property name="transactionManager" ref="jtaTransactionManager"/>
+        <property name="messageListener" ref="receiveMessageByListener"/>
+        <property name="sessionTransacted" value="true"/>
     </bean>
-
-<bean id="jtaTransactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>
-
 </beans>

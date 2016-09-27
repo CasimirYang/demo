@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <!--默认的bean用构造函数实例化-->
+
+       <!--使用工厂类的静态工厂方法实例化-->
+       <bean id="factory_bean_static" class="com.spring.factoryBean.MyService" factory-method="createInstanceByStatic">
+       </bean>
+
+       <!--使用实例工厂方法实例化-->
+       <bean id="factory_bean"  factory-bean="factory_bean_instance" factory-method="createInstance" />
+       <bean id="factory_bean_instance" class="com.spring.factoryBean.MyService" />
+</beans>

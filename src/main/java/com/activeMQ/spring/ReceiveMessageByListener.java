@@ -1,7 +1,9 @@
 package com.activeMQ.spring;
 
 import javax.jms.*;
+import javax.management.RuntimeErrorException;
 
+import org.apache.activemq.command.ActiveMQMapMessage;
 import org.apache.activemq.command.ActiveMQTextMessage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -22,15 +24,16 @@ public class ReceiveMessageByListener implements SessionAwareMessageListener<Tex
     @Override
     public void onMessage(TextMessage message, Session session) throws JMSException {
         // This is the received message
-        System.out.println("Receive: "+message.getText());
+        System.out.println("Receive: "+message);
 
         // Message send back to the replyTo address of the income message.
         // Like replying an email somehow.
         // Let's prepare a reply message - a "ACK" String
-        ActiveMQTextMessage textMessage = new ActiveMQTextMessage();
-        textMessage.setText("ACK");
-        MessageProducer producer = session.createProducer(message.getJMSDestination()); //message.getJMSReplyTo()
-        producer.send(textMessage);
+//        ActiveMQTextMessage textMessage = new ActiveMQTextMessage();
+//        textMessage.setText("ACK");
+//        MessageProducer producer = session.createProducer(message.getJMSDestination()); //message.getJMSReplyTo()
+//        producer.send(textMessage);
+       // throw new RuntimeException("--------12----");
     }
 
     public static void main(String[] args) {
