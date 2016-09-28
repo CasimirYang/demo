@@ -4,7 +4,7 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myBatis.ClassMapper">
 
-    <!-- 一对多 -->
+    <!--嵌套结果: 一对多 -->
    <select id="selectClass" resultMap="resultMap">
       select user.id as uid,user_name as uname,cid,class.id as id,class_name,cid from user,class where user.cid=class.id
    </select>
@@ -19,7 +19,7 @@
     </resultMap>
 
 
-  <!-- 存在 N+1 查询问题-->
+  <!-- 嵌套查询: 存在 N+1 查询问题-->
     <select id="selectClass2" resultMap="resultMap2">
         select * from class
     </select>
