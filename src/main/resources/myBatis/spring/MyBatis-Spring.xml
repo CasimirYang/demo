@@ -4,8 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-    <bean id="fooService" class="com.myBatis.spring.ServiceImpl">
+
+    <bean id="myService" class="com.myBatis.spring.ServiceImpl">
         <property name="userMapper" ref="userMapper" />
+        <property name="classMapper" ref="classMapper" />
+    </bean>
+
+    <bean id="classMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.myBatis.ClassMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">

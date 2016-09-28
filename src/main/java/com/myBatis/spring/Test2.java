@@ -22,32 +22,17 @@ import java.util.List;
  */
 @ContextConfiguration(locations= {"/myBatis/spring/*.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class ServiceImplTest {
+public class Test2 {
 
-    @Autowired
-    @Qualifier("fooService")
+    @Autowired(required = false)
+    @Qualifier("myService")
     private ServiceImpl serviceImpl;
-
-    @Autowired
-    @Qualifier("fooService")
-    private ServiceImpl serviceImpl2;
 
     @Test
     public void testMyCollection(){
-        serviceImpl.updateAge(true);
-        //serviceImpl.update(2);
-//        List<UserModel> list = serviceImpl.getUsers();
-//        for (UserModel userModel: list){
-//            System.out.println(userModel.getName());
-//        }
-//        ApplicationContext ct = new ClassPathXmlApplicationContext("/springJMS/receiveByListener.xml"); //用这个就和当前配置的annotation无关了
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        // close application context
-//        ((ClassPathXmlApplicationContext)ct).close();
 
+        //Object userModel  = serviceImpl.getUser(2);
+        System.out.println(serviceImpl.selectClass2());
+        ;
     }
 }

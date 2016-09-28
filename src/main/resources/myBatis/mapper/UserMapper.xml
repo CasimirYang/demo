@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myBatis.UserMapper">
+
+    <cache
+            eviction="LRU"
+            flushInterval="60000"
+            size="512"
+            readOnly="true"/>
+
+    <select id="selectMap" resultType="map">
+        select * from user where id = #{id} for update
+    </select>
+
+    <select id="selectUser"  resultMap="resultMap">
+            select * from user where id = #{id} for update
+    </select>
+
+    <select id="selectUsers" resultMap="resultMap">
+        select * from user,class where user.cid=class.id
+    </select>
+
+    <!-- 多对一 -->
+    <resultMap id="resultMap" type="com.myBatis.UserModel">
+        <id property="uid" column="id" />
+        <result property="uname" column="user_name"/>
+        <association property="classModel" javaType="com.myBatis.ClassModel" >
+            <id column="id" property="cid" />
+            <result column="class_name" property="cname" />
+        </association>
+    </resultMap>
+
+    <update id="updateUser">
+        update user
+        <set>
+            <if test="name != null">name='44'</if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

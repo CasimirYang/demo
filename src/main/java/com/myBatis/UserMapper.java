@@ -12,11 +12,10 @@ import java.util.Map;
  */
 
 public interface UserMapper {
-    String selectBlog(int id);
 
     Map selectMap(int id);
 
-    UserModel selectUser(int id);
+    Object selectUser(int id);
 
     List selectUsers();
 
@@ -24,5 +23,9 @@ public interface UserMapper {
 
     void updateUser(@Param("id") int id);
 
-    void updateUser2(@Param("id") int id);
+    void updateAge(@Param("age") int age, @Param("id") int id);
+
+    int selectAge(@Param("id") int id);
+
+
 }

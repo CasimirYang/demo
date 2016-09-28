@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myBatis.ClassMapper">
+
+    <!-- 一对多 -->
+   <select id="selectClass" resultMap="resultMap">
+      select user.id as uid,user_name as uname,cid,class.id as id,class_name,cid from user,class where user.cid=class.id
+   </select>
+
+    <resultMap id="resultMap" type="com.myBatis.ClassModel">
+        <id property="cid" column="id" />
+        <result property="cname" column="class_name"/>
+        <collection property="userModel" javaType="ArrayList" column="uid"  ofType="com.myBatis.UserModel">
+            <id column="uid" property="uid"/>
+            <result column="uname" property="uname" />
+        </collection>
+    </resultMap>
+
+
+  <!-- 存在 N+1 查询问题-->
+    <select id="selectClass2" resultMap="resultMap2">
+        select * from class
+    </select>
+    <resultMap id="resultMap2" type="com.myBatis.ClassModel">
+        <id property="cid" column="id" />
+        <result property="cname" column="class_name"/>
+        <collection property="userModel" javaType="ArrayList" column="id" select="selectUerforClass" />
+    </resultMap>
+
+
+    <select id="selectUerforClass" resultType="com.myBatis.UserModel">
+        select user.id as uid,user_name as uname,cid from user where cid=#{id}
+    </select>
+
+</mapper>
