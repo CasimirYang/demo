@@ -10,9 +10,14 @@ import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.WebApplicationContext;
 
 import javax.jms.Queue;
 import java.util.List;
@@ -22,7 +27,8 @@ import java.util.List;
  */
 
 @Service
-@Transactional
+@Scope(value = WebApplicationContext.SCOPE_SESSION,proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Transactional(isolation = Isolation.SERIALIZABLE,propagation = Propagation.REQUIRED)
 public class ServiceImpl {
 
     private UserMapper userMapper;

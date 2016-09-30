@@ -6,7 +6,9 @@ package com.spring.baseBean;
  * 该行为也许有些不同，这得根据具体的bean的作用域。这里讨论的是singleton单例作用域。
  */
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
@@ -28,7 +30,7 @@ public class AppConfig {
     }
 
     @Bean
-    @Scope(value = "prototype")  //如果不声明为prototype 类型， 即使这个方法被前面两个单例bean调用了两次，还是同一个对象。如果不用@Bean 修饰，只是普通的方法就是不同的对象
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)  //如果不声明为prototype 类型， 即使这个方法被前面两个单例bean调用了两次，还是同一个对象。如果不用@Bean 修饰，只是普通的方法就是不同的对象
     public ClientDaoImpl clientDao() {
         return new ClientDaoImpl();
     }

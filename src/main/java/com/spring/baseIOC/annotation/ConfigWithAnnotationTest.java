@@ -2,9 +2,11 @@ package com.spring.baseIOC.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by casimiryang on 2016/3/29.
@@ -16,8 +18,8 @@ public class ConfigWithAnnotationTest {
 
     @Bean   //修饰方法
     @Qualifier("someBean") //如果全局只有一个String 需要被注入，那这里可以省略Qualifier
-    String method(){
-        return new String("cvszz");
+    String method(@Qualifier("another_bean") String a){
+        return new String(a);
     }
 
     @Scope("prototype")
@@ -26,6 +28,7 @@ public class ConfigWithAnnotationTest {
     String method2(){
         return new String("cvszz22");
     }
+
 
     @Autowired          //声明这个field 会被自动注入
     @Qualifier("SomeBeanAnnotation")

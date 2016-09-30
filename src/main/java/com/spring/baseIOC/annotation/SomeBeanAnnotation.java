@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class SomeBeanAnnotation {
 
     @Autowired
-    @Qualifier("someBean")
+    @Qualifier("another_bean2")
     private String someBean;
 
 
