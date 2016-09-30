@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * Created by yjh on 16/9/29.
  */
 @Component
-@PropertySource(value = "classpath:com/spring/property/quartz.properties")
+@PropertySource(value = "classpath:com/spring/property/quartz.properties",ignoreResourceNotFound = true)
 public class MyProperty{
 
 //为了支持spring el 表达式
