@@ -28,7 +28,7 @@ public class BaseMain {
             UserMapper mapper = session.getMapper(UserMapper.class);
             //UserModel userModel = mapper.selectUser2("cas",1);
             //System.out.println("------:"+userModel);
-            mapper.updateUser(1);
+            mapper.updateUser("name",1);
             session.commit();
         } finally {
             session.close();

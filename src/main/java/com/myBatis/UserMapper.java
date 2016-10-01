@@ -21,11 +21,10 @@ public interface UserMapper {
 
     UserModel selectUser2(@Param("name") String name,@Param("id") int id);
 
-    void updateUser(@Param("id") int id);
+    void updateUser(@Param("user_name")String user_name,@Param("id") int id);
 
     void updateAge(@Param("age") int age, @Param("id") int id);
 
-    int selectAge(@Param("id") int id);
-
+    int getCid(@Param("id") int id);
 
 }

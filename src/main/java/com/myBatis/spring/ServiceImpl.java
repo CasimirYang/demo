@@ -8,6 +8,8 @@ import com.myBatis.UserModel;
 import com.sun.tools.internal.jxc.SchemaGenerator;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
@@ -18,6 +20,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
+import redis.clients.jedis.Jedis;
 
 import javax.jms.Queue;
 import java.util.List;
@@ -43,7 +46,7 @@ public class ServiceImpl {
     }
 
     public void update(int id){
-        this.userMapper.updateUser(1);
+       // this.userMapper.updateUser(1);
 
 //        ApplicationContext ct = new ClassPathXmlApplicationContext("/springJMS/receiveByListener.xml"); //用这个就和当前配置的annotation无关了
 //        try {
@@ -76,11 +79,7 @@ public class ServiceImpl {
 
     @Transactional
     public void updateAge(boolean sleep){
-        int age = this.userMapper.selectAge(1);
-        System.out.println("age1: "+age +" thread name:"+Thread.currentThread().getName());
        // this.userMapper.updateAge(age+1,1);
-        int age2 = this.userMapper.selectAge(1);
-        System.out.println("age2: "+age2+" thread name:"+Thread.currentThread().getName());
         try {
             if(sleep){
                 Thread.sleep(20000);
@@ -94,7 +93,16 @@ public class ServiceImpl {
         return this.classMapper.selectClass();
     }
 
+    @CachePut(value = "qqaa")
+    public int getCid(int id){
+        this.userMapper.updateUser("bb",1);
+        return 101;
+        //return this.userMapper.getCid(id);
+
+    }
+    @Cacheable("users")
     public List<ClassModel> selectClass2(){
         return this.classMapper.selectClass2();
     }
+
 }

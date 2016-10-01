@@ -35,9 +35,12 @@
     <update id="updateUser">
         update user
         <set>
-            <if test="name != null">name='44'</if>
+            <if test="user_name != null">user_name=#{user_name}</if>
         </set>
         where id = #{id}
     </update>
 
+    <select id="getCid" resultType="int">
+        select cid from user where id =#{id}
+    </select>
 </mapper>
