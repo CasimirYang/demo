@@ -10,4 +10,35 @@
             <result name="success">/WEB-INF/pages/welcome_user.jsp</result>
         </action>
     </package>
+
+
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="global" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <action name="fileUploadAction"
+                class="com.strtus2.FileUploadAction" method="display">
+            <result name="none">/WEB-INF/pages/fileupload.jsp</result>
+        </action>
+
+        <action name="resultAction" class="com.strtus2.FileUploadAction">
+            <!--<interceptor-ref name="exception"/>-->
+            <!--<interceptor-ref name="i18n"/>-->
+            <!--<interceptor-ref name="fileUpload">-->
+                <!--<param name="allowedTypes">text/plain</param>-->
+                <!--<param name="maximumSize">10240</param>-->
+            <!--</interceptor-ref>-->
+            <!--<interceptor-ref name="params">-->
+                <!--<param name="excludeParams">dojo\..*,^struts\..*</param>-->
+            <!--</interceptor-ref>-->
+            <!--<interceptor-ref name="validation">-->
+                <!--<param name="excludeMethods">input,back,cancel,browse</param>-->
+            <!--</interceptor-ref>-->
+            <!--<interceptor-ref name="workflow">-->
+                <!--<param name="excludeMethods">input,back,cancel,browse</param>-->
+            <!--</interceptor-ref>-->
+            <result name="success">/WEB-INF/pages/welcome_user.jsp</result>
+        </action>
+    </package>
 </struts>
