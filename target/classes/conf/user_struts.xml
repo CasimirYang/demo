@@ -6,7 +6,7 @@
 
 <struts>
     <package name="user" namespace="/User" extends="struts-default">
-        <action name="Login" class="com.strtus2.WelcomeUserAction">
+        <action name="welcomeUserAction" class="welcomeUserAction">
             <result name="success">/WEB-INF/pages/welcome_user.jsp</result>
         </action>
     </package>

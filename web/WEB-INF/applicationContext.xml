@@ -6,4 +6,6 @@
 
     <import resource="classpath:/myBatis/spring/MyBatis-Spring.xml" />
 
+    <import resource="classpath:/spring-struts2.xml" />
+
 </beans>

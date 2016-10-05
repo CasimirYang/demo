@@ -23,7 +23,7 @@ public class TestFilter implements Filter {
         logger1.info("before filter-----:"+Thread.currentThread().getId());
         // System.out.println("before filter-----:"+Thread.currentThread().getId());
         filterChain.doFilter(servletRequest,servletResponse);
-        logger1.info("before filter-----:"+Thread.currentThread().getId());
+        logger1.info("after filter-----:"+Thread.currentThread().getId());
         //System.out.println("after filter-----:"+Thread.currentThread().getId());
     }
 
