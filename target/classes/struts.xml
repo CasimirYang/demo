@@ -8,12 +8,5 @@
     <!--修改动作的后缀扩展名 ,默认为action 配置文件:default.properties-->
     <!--<constant name="struts.action.extension" value=""/>-->
 
-    <!--<package name="default" namespace="/" extends="struts-default">-->
-    <!--</package>-->
-
-    <package name="user" namespace="/User"  extends="struts-default">
-        <action name="Login" class="com.strtus2.WelcomeUserAction">
-            <result name="success">/pages/welcome_user.jsp</result>
-        </action>
-    </package>
+    <include file="/conf/user_struts.xml" />
 </struts>
