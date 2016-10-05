@@ -8,7 +8,8 @@ import javax.xml.ws.Endpoint;
 /**
  * Created by yjh on 16/9/28.
  */
-@WebService(endpointInterface= "com.webservice.base.MyService",serviceName="bilibili",portName = "ppii",targetNamespace = "lili")
+@WebService(endpointInterface= "com.webservice.base.MyService",serviceName="" +
+        "bilibili",portName = "ppii",targetNamespace = "lili")
 public class MyServiceImpl implements MyService {
 
     @Override

@@ -6,7 +6,7 @@
 
 <cache:annotation-driven />
 
-    <!--set transactionAware(boolean) to true,让cache事务被外层事务包围-->
+    <!--set transactionAware(boolean) to true,让cache事务能被被外层事务包围-->
     <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
         <property name="transactionAware" value="true" />
         <constructor-arg name="redisOperations" ref="redisTemplate" />

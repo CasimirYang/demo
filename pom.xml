@@ -8,13 +8,22 @@
     <artifactId>casimir</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.3.RELEASE</version>
-    </parent>
+    <!--<parent>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--<version>1.3.3.RELEASE</version>-->
+    <!--</parent>-->
 
 <dependencies>
+
+
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>2.5</version>
+        <scope>provided</scope>
+    </dependency>
+
     <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
@@ -40,29 +49,35 @@
         <version>2.8.0</version>
 
     </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-            <version>1.6.4.RELEASE</version>
-        </dependency>
+    <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-redis</artifactId>
+        <version>1.6.4.RELEASE</version>
+    </dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context</artifactId>
+        <version>4.3.3.RELEASE</version>
     </dependency>
+
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-test</artifactId>
+        <version>4.3.3.RELEASE</version>
+        <scope>provided</scope>
     </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+
+    <!--<dependency>-->
+    <!--<groupId>org.springframework.boot</groupId>-->
+    <!--<artifactId>spring-boot-starter-web</artifactId>-->
+    <!--</dependency>-->
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-
+        <version>4.12</version>
     </dependency>
+
     <dependency>
         <groupId>org.quartz-scheduler</groupId>
         <artifactId>quartz</artifactId>
@@ -84,12 +99,14 @@
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-jms</artifactId>
+        <version>4.3.3.RELEASE</version>
     </dependency>
 
     <!--sent message-->
     <dependency>
         <groupId>org.apache.activemq</groupId>
         <artifactId>activemq-spring</artifactId>
+        <version>5.14.0</version>
     </dependency>
 
     <dependency>
@@ -127,6 +144,12 @@
         <groupId>org.aspectj</groupId>
         <artifactId>aspectjrt</artifactId>
         <version>1.8.9</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>4.2.5.RELEASE</version>
     </dependency>
 
 </dependencies>
