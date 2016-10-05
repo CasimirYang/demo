@@ -2,11 +2,9 @@ package com.spring.baseIOC.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by casimiryang on 2016/3/29.
@@ -46,7 +44,7 @@ public class ConfigWithAnnotationTest {
         SomeBeanAnnotation someBeanAnnotation = context.getBean(SomeBeanAnnotation.class);
         System.out.println(someBeanAnnotation.getSomeBean());
 
-        ApplicationContext ct = new ClassPathXmlApplicationContext("/baseConfig.xml"); //用这个就和当前配置的annotation无关了
+        ApplicationContext ct = new ClassPathXmlApplicationContext("/spring/baseConfig.xml"); //用这个就和当前配置的annotation无关了
         System.out.println(ct.getBean("innerClassId"));
     }
 

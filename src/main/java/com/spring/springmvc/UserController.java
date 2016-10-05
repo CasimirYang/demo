@@ -29,6 +29,8 @@ public class UserController {
            System.out.println(item.getUid());
         }
         // model.addAttribute("user", user);
-        return "showUser";
+        System.out.println("spring mvc-----:"+Thread.currentThread().getId());
+        model.addAttribute("greeting", "Hello Spring MVC");
+        return "showUserPage";
     }
 }

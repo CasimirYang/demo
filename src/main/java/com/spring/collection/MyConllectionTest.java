@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by casimiryang on 2016/3/30.
  */
 
-@ContextConfiguration(locations= {"/collection.xml"})
+@ContextConfiguration(locations= {"/spring/collection.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MyConllectionTest {
 

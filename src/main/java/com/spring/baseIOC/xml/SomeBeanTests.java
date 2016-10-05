@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by casimiryang on 2016/3/29.
  */
 
-@ContextConfiguration(locations= {"/baseConfig.xml","/field_DI.xml"})
+@ContextConfiguration(locations= {"/spring/baseConfig.xml", "/spring/field_DI.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class SomeBeanTests {
 

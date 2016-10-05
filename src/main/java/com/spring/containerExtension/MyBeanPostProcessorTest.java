@@ -27,7 +27,7 @@ public class MyBeanPostProcessorTest {
      /*   ApplicationContext context = new AnnotationConfigApplicationContext(MyBeanPostProcessorTest.class,MyBeanPostProcessor.class);
         MyBean myBean = context.getBean(MyBean.class);
         System.out.println(myBean);*/
-        ApplicationContext context = new ClassPathXmlApplicationContext("containerExtension.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring/containerExtension.xml");
         System.out.println( context.getBean("myBean"));
     }
 }
