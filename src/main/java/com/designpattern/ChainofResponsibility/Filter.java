@@ -26,5 +26,6 @@ public  abstract class Filter {
         }
     }
 
-   abstract void doFilter(String message);
+    //protected 避免被直接访问
+   abstract protected void doFilter(String message);
 }
