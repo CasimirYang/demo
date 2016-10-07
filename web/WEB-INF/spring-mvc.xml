@@ -2,20 +2,75 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.spring.springmvc" />
 
-    <!--config response-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/WEB-INF/pages/</value>
-        </property>
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
 
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="viewResolvers">
+            <list>
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                    <property name="prefix" value="/WEB-INF/pages/"/>
+                    <property name="suffix" value=".jsp"/>
+                </bean>
+                <bean class="com.spring.springmvc.JsonViewResolver">
+                </bean>
+            </list>
+        </property>
     </bean>
+
+    <!-- 配置一个 ViewResolver 用来找出真正的视图-->
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="prefix">-->
+            <!--<value>/WEB-INF/pages/</value>-->
+        <!--</property>-->
+        <!--<property name="suffix">-->
+            <!--<value>.jsp</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+  <!--配置消息包，以支持[国际化]消息属性文件-->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename">
+            <value>errorMessages</value>
+        </property>
+    </bean>
+
+
+    <!--原因:如果你的DispatcherServlet拦截 *.do这样的URL，就不存在访问不到静态资源的问题。-->
+    <!--如果你的DispatcherServlet拦截“/”，拦截了所有的请求，同时对*.js,*.jpg的访问也就被拦截了。-->
+
+    <!--多个HandlerMapping的执行顺序：-->
+    <!--符合名字的HandlerMapping-->
+    <!--<mvc:resources/ >-->
+    <!--<mvc:default-servlet-handler/>-->
+
+    <!--配置 ResourceHandler 静态资源-->
+    <mvc:resources mapping="/static/**" location="/static/" />
+
+    <!--把对静态资源的访问转到使用就是各个 Servlet 容器自己的默认 Servlet.-->
+    <mvc:default-servlet-handler />
+
+    <!--相当于注册了DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter两个bean，
+    配置一些messageconverte-->
+    <mvc:annotation-driven/>
+
+
+    <!--spring mvc 中的拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--allows for changing the current locale on every request-->
+            <mvc:mapping path="*.do"/>
+            <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="*.do"/>
+            <bean class="com.spring.springmvc.MyHandlerInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

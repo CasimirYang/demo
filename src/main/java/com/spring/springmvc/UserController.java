@@ -2,9 +2,13 @@ package com.spring.springmvc;
 
 import com.myBatis.UserModel;
 import com.myBatis.spring.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +17,8 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -23,7 +29,7 @@ import java.util.Locale;
 @Controller
 public class UserController {
 
-    @Resource
+    @Autowired
     private ServiceImpl service;
 
     @RequestMapping("/showUser")
@@ -52,8 +58,10 @@ public class UserController {
 
         model.addAttribute("name", name);
 
-
         //使用前缀 "redirect:" ，该方法返回字符串，可以重定向到另一页面。参见图：
         return "redirect:/hello";
     }
+
+
+
 }

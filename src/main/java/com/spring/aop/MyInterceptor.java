@@ -8,7 +8,12 @@ import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by yjh on 16/9/30.
+ * @Aspect 切面
+ * @Pointcut 切入点: 匹配连接点（Joinpoint）的断言
+ *  execution(* com.spring.aop.PersonServer.*(..) 连接点:在程序执行过程中某个特定的点
+ * @Before,@Around,@After.. 通知:在切面的连接点上执行的动作
+ *
+ * 使用切入点是为了避免重复定义连接点
  */
 @Aspect
 @Component
