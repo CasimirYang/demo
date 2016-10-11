@@ -11,8 +11,8 @@ public class ThreadLocalTest {
 
     public static ThreadLocal<Integer> threadLocal = new ThreadLocal<Integer>();
 
-    public static void main(String args[]){
-        threadLocal.set(new Integer(123));
+    public  static void main(String args[]){
+        threadLocal.set(123);
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {

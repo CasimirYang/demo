@@ -8,12 +8,12 @@ import java.util.concurrent.Exchanger;
 public class ExchangerTest {
 
     public static void main(String[] args){
-        Exchanger<String> exchanger =  new Exchanger();
+        Exchanger<String> exchanger =  new Exchanger<>();
 
-        Thread a =new Thread(new ExchangerRunnable(exchanger,"cas"));
-        new Thread(new ExchangerRunnable(exchanger,"CASI")).start();
+        Thread a =new Thread(new ExchangerRunnable(exchanger,"cas"),"n1");
+        new Thread(new ExchangerRunnable(exchanger,"CASI"),"n2").start();
         System.out.println(a.isInterrupted());
-          a.start();
+        a.start();
         Object A;
     }
 
