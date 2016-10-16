@@ -23,17 +23,17 @@ public class HashCodeTest implements Comparable<HashCodeTest>{
         TreeMap<HashCodeTest,Integer> map = new TreeMap<>();
         map.put(demo1,1);
         map.put(demo2,2);
-        System.out.println(map.keySet()); //map 的key 比较hashcode 和equals
+        System.out.println(map.keySet()); //TreeMap 依赖实现Comparable 的compareTo接口比较
 
         HashSet<HashCodeTest> set = new HashSet<>();
         set.add(new HashCodeTest("a",11));
         set.add(new HashCodeTest("a",11));
-        System.out.println(set.size()); //map 的key 比较hashcode 和equals
+        System.out.println(set.size()); //HashSet 的key 比较hashcode 和equals
 
         TreeSet<HashCodeTest> set2 = new TreeSet<>();
         set2.add(new HashCodeTest("a2",11));
         set2.add(new HashCodeTest("a2",11));
-        System.out.println(set2.size()); //map 的key 比较hashcode 和equals
+        System.out.println(set2.size()); //TreeSet 依赖实现Comparable 的compareTo接口比较
     }
     @Override
     public int hashCode() {

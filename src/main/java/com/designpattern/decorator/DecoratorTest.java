@@ -1,5 +1,7 @@
 package com.designpattern.decorator;
 
+import sun.jvm.hotspot.utilities.ObjectReader;
+
 import java.io.*;
 
 /**
@@ -15,9 +17,9 @@ public class DecoratorTest {
       //  BufferedInputStream b = new BufferedInputStream(new FileInputStream(new File("test.txt")));
         try {
             Writer writer = new OutputStreamWriter(new FileOutputStream(new File("a.test")));
-            Writer writer2 =new BufferedWriter(new BufferedWriter(new FileWriter(new File("a.ext"))));
-           Writer writer3 =new BufferedWriter(new BufferedWriter(
-                    new OutputStreamWriter(new FileOutputStream(new File("a.test")))));
+            Writer writer2 =new BufferedWriter(new FileWriter(new File("a.ext")));
+           Writer writer3 =new BufferedWriter(
+                    new OutputStreamWriter(new FileOutputStream(new File("a.test"))));
         } catch (Exception e) {
             e.printStackTrace();
         }

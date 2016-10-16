@@ -16,6 +16,9 @@ public class MyServiceImpl implements MyService {
     @WebResult(name="addResult")
     public int add(@WebParam(name="firstA")int a , @WebParam(name="SecondB")int b) {
         System.out.print(a+"+"+b+"="+(a+b));
+        if(a !=5 ){
+            throw new NullPointerException("aa");
+        }
         return a+b;
     }
 

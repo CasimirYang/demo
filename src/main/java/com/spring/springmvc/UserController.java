@@ -35,7 +35,6 @@ public class UserController {
     private ServiceImpl service;
 
     @RequestMapping("/showUser")
-    @ResponseBody
     public Model toIndex(HttpServletRequest request, HttpServletResponse response, Model model){
         //i18n
         ApplicationContext ctx = RequestContextUtils.findWebApplicationContext(request);
