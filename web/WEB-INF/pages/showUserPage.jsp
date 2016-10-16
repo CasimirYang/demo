@@ -13,6 +13,7 @@
 <body>
 <h1>test</h1>
 <h1>${greeting}</h1>
-
+<h2>${sessionScope.greeting}</h2>
+<h3>${sections}</h3>
 </body>
 </html>

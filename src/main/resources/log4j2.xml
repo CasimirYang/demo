@@ -5,7 +5,9 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
         </Console>
-
+        <Console name="MyConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{YYYY:MM:dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
+        </Console>
         <RollingFile name="RollingFile" filename="log/CrunchifyTest.log"
                      filepattern="${logPath}/%d{YYYYMMddHHmmss}-fargo.log">
             <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
@@ -21,5 +23,8 @@
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
         </Root>
+        <!--<Logger level="debug" name="mylog">-->
+            <!--<AppenderRef ref="MyConsole" />-->
+        <!--</Logger>-->
     </Loggers>
 </Configuration>

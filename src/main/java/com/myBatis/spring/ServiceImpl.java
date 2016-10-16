@@ -8,6 +8,8 @@ import com.myBatis.UserModel;
 import com.sun.tools.internal.jxc.SchemaGenerator;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.ibatis.annotations.Mapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationContext;
@@ -93,13 +95,23 @@ public class ServiceImpl {
         return this.classMapper.selectClass();
     }
 
-    @CachePut(value = "qqaa")
+    @Cacheable("qqaa")
     public int getCid(int id){
+        Logger logger = LoggerFactory.getLogger("mylog");
+        logger.info("-----------getCid in cache method Cacheable--------------");
         this.userMapper.updateUser("bb",1);
         return 101;
         //return this.userMapper.getCid(id);
-
     }
+    @CachePut("qqaa")
+    public int getCid2(int id){
+        Logger logger = LoggerFactory.getLogger("mylog");
+        logger.info("-----------getCid in cache method CachePut--------------");
+        this.userMapper.updateUser("bb",1);
+        return 101;
+        //return this.userMapper.getCid(id);
+    }
+
     @Cacheable("users")
     public List<ClassModel> selectClass2(){
         return this.classMapper.selectClass2();

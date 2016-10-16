@@ -11,6 +11,11 @@
 </head>
 
 <body>
+<h1>-- enroll --</h1>
+<h1>${greeting}</h1>
+<h2>${sessionScope.greeting}</h2>
+<h3>${sections}</h3>
+
 <div class="form-container">
     <h1>Enrollment Form</h1>
     <form:form method="POST" action="test.do" modelAttribute="student" class="form-horizontal">

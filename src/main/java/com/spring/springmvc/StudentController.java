@@ -18,6 +18,7 @@ import java.util.logging.Logger;
  * student validate
  */
 @Controller
+@SessionAttributes("sections")
 public class StudentController {
 
 

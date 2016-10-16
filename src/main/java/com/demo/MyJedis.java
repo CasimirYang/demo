@@ -1,5 +1,7 @@
 package com.demo;
 
+import redis.clients.jedis.Jedis;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +17,17 @@ public class MyJedis {
             System.out.print(item);
         }
         System.out.print("2");
-//        Jedis jedis = new Jedis("localhost");
-//        //jedis.set("foo", "bar");
-//        System.out.print(jedis.exists("foo"));
+
+        Jedis jedis = new Jedis("localhost");
+        //jedis.set("foo", "bar");
+       // System.out.print(jedis.exists("foo"));
 //        jedis.expire("foo",5);
 //        jedis.del("");
 //        String value = jedis.get("foo");
-//        System.out.print(value);
+       // System.out.print(value);
+        for (int i = 0; i < 100000; i++) {
+            jedis.set("key_"+i, "barasdf2");
+        }
     }
 
 }

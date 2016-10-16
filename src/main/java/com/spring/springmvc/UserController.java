@@ -8,46 +8,59 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 /**
  * @RequestParam 注解将请求参数绑定到你的控制器方法参数
  *
  */
 @Controller
+@SessionAttributes("greeting")
 public class UserController {
+    int bb =3;
 
     @Autowired
     private ServiceImpl service;
 
     @RequestMapping("/showUser")
-    public String toIndex(HttpServletRequest request, Model model){
+    @ResponseBody
+    public Model toIndex(HttpServletRequest request, HttpServletResponse response, Model model){
         //i18n
         ApplicationContext ctx = RequestContextUtils.findWebApplicationContext(request);
        // String msg = ctx.getMessage("test.error", null, Locale.CHINA);
-
         int userId = Integer.parseInt(request.getParameter("id"));
-        List<UserModel> list = this.service.getUsers();
-        for (UserModel item : list)
-        {
-           System.out.println(item.getUid());
-        }
+        service.getCid(1);
+//        List<UserModel> list = this.service.getUsers();
+//        for (UserModel item : list)
+//        {
+//           System.out.println(item.getUid());
+//        }
         // model.addAttribute("user", user);
+//        try {
+//            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+       // response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         System.out.println("spring mvc-----:"+Thread.currentThread().getId());
-        model.addAttribute("greeting", "Hello Spring MVC");
-        return "showUserPage";
+//        model.addAttribute("greeting", "Hello Spring MVC");
+//        if(userId==1){
+//            throw new NullPointerException("eee");
+//        }
+        model.addAttribute("name", userId);
+        return model;
     }
 
 

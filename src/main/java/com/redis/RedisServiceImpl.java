@@ -20,10 +20,11 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public void testTran(boolean flag) {
+      //  serviceImpl.getCid2(1);
         serviceImpl.getCid(1);
         if(flag){
             throw new RuntimeException("---------000------------");
         }
-        serviceImpl.getCid(2);
+       serviceImpl.getCid(2);
     }
 }

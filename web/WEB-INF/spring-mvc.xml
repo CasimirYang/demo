@@ -23,6 +23,27 @@
         </property>
     </bean>
 
+    <!--&lt;!&ndash; Common Exception Resolver &ndash;&gt;-->
+    <!--<bean id="simpleMappingExceptionResolver"-->
+          <!--class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+        <!--<property name="exceptionMappings">-->
+            <!--<map>-->
+                <!--&lt;!&ndash; File Upload Size Limit Exceeded &ndash;&gt;-->
+                <!--<entry key="Exception" value="/WEB-INF/pages/error3.jsp" />-->
+            <!--</map>-->
+        <!--</property>-->
+        <!--&lt;!&ndash; Mapping error page to HTTP status code &ndash;&gt;-->
+        <!--<property name="statusCodes">-->
+            <!--<map>-->
+                <!--<entry key="/WEB-INF/pages/error.jsp" value="500" />-->
+            <!--</map>-->
+        <!--</property>-->
+        <!--&lt;!&ndash; Default error page &ndash;&gt;-->
+        <!--<property name="defaultErrorView" value="/WEB-INF/pages/error.jsp" />-->
+        <!--&lt;!&ndash; Default HTTP status code, which is 500 (Internal server error) &ndash;&gt;-->
+        <!--<property name="defaultStatusCode" value="400" />-->
+    <!--</bean>-->
+
     <!-- 配置一个 ViewResolver 用来找出真正的视图-->
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
         <!--<property name="prefix">-->
