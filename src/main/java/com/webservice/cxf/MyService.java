@@ -1,4 +1,4 @@
-package com.webservice.base;
+package com.webservice.cxf;
 
 import javax.jws.WebParam;
 import javax.jws.WebResult;

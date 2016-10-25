@@ -1,5 +1,7 @@
 package com.webservice.base;
 
+import com.webservice.cxf.MyServiceImpl;
+
 import javax.xml.ws.Endpoint;
 
 /**

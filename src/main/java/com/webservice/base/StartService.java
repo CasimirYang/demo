@@ -1,5 +1,7 @@
 package com.webservice.base;
 
+import com.webservice.cxf.MyService;
+
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import java.net.MalformedURLException;

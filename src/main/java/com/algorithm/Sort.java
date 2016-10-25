@@ -49,11 +49,12 @@ public class Sort {
         int[] array = new int[]{9,5,3,4,8,2,1,7};
        // bubbleSort(array);
       //  System.out.println(Arrays.toString(array));
-        int[] array2 = new int[]{4,5,3,6,7};
-       // quickSort(array2,0,array2.length-1);
-
-        System.out.println(-3<<2);
-        System.out.println(longestPalindrome("ccd"));
+        int[] array2 = new int[]{4,5,3,6,7,1,8,3,0,9};
+        quickSort(array2,0,array2.length-1);
+        for (int i : array2)
+        System.out.println(i);
+        //System.out.println(-3<<2);
+       // System.out.println(longestPalindrome("ccd"));
     }
 
     static void bubbleSort(int[] array){
@@ -74,7 +75,7 @@ public class Sort {
     static void quickSort(int[] array,int low,int high){
 
         //get pivot
-        int middle = (low+high) >> 2;
+        int middle = (low+high) >> 1;
         int pivot = array[middle];
 
         // make left < pivot and right > pivot

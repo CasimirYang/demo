@@ -35,7 +35,8 @@ public class UserController {
     private ServiceImpl service;
 
     @RequestMapping("/showUser")
-    public Model toIndex(HttpServletRequest request, HttpServletResponse response, Model model){
+    @ResponseBody
+    public String toIndex(HttpServletRequest request, HttpServletResponse response, Model model){
         //i18n
         ApplicationContext ctx = RequestContextUtils.findWebApplicationContext(request);
        // String msg = ctx.getMessage("test.error", null, Locale.CHINA);
@@ -59,7 +60,7 @@ public class UserController {
 //            throw new NullPointerException("eee");
 //        }
         model.addAttribute("name", userId);
-        return model;
+        return "showUserPage";
     }
 
 

@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cxf="http://cxf.apache.org/core"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://cxf.apache.org/core
+       http://cxf.apache.org/schemas/core.xsd
+       http://cxf.apache.org/jaxws
+        http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <bean id="myService" class="com.webservice.cxf.MyServiceImpl" />
+
+    <jaxws:endpoint id="helloWorld" implementor="#myService" address="/myAdress">
+        <!--<jaxws:inInterceptors>-->
+            <!--<ref bean="soapAuth"/>-->
+        <!--</jaxws:inInterceptors>-->
+    </jaxws:endpoint>
+
+    <bean  id="soapAuth" class="com.webservice.cxf.SoapAuth">
+    </bean>
+
+    <cxf:bus>
+        <cxf:inInterceptors>
+            <ref bean="soapAuth" />
+        </cxf:inInterceptors>
+    </cxf:bus>
+
+
+    <!--rest-->
+    <!--<bean id="productServiceImpl" class="com.webservice.cxfrest.ProductServiceImpl" />-->
+    <!--<jaxrs:server address="/rest">-->
+        <!--<jaxrs:serviceBeans>-->
+            <!--<ref bean="productServiceImpl"/>-->
+        <!--</jaxrs:serviceBeans>-->
+        <!--<jaxrs:providers>-->
+            <!--<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>-->
+        <!--</jaxrs:providers>-->
+    <!--</jaxrs:server>-->
+    <!--使用 CXF 提供的 Spring 命名空间来配置 Service Bean（即上文提到的 Resource Class）-->
+    <!--与 Provider。注意，这里配置了一个 address 属性为“/rest”，表示 REST 请求的相对路径，-->
+    <!--与 web.xml 中配置的“/ws/*”结合起来，最终的 REST 请求根路径是“/ws/rest”，在 ProductService -->
+    <!--接口方法上@Path注解所配置的路径只是一个相对路径。-->
+
+</beans>

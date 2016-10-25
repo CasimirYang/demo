@@ -1,14 +1,13 @@
-package com.webservice.base;
+package com.webservice.cxf;
 
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.xml.ws.Endpoint;
 
 /**
  * Created by yjh on 16/9/28.
  */
-@WebService(endpointInterface= "com.webservice.base.MyService",serviceName="" +
+@WebService(endpointInterface= "com.webservice.cxf.MyService",serviceName="" +
         "bilibili",portName = "ppii",targetNamespace = "lili")
 public class MyServiceImpl implements MyService {
 

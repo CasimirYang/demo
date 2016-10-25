@@ -1,6 +1,7 @@
 package com.myBatis.spring;
 
 import com.activeMQ.spring.MessageSender;
+import com.myBatis.ClassModel;
 import com.myBatis.UserModel;
 import com.spring.collection.MyCollection;
 import org.apache.activemq.command.ActiveMQQueue;
@@ -20,19 +21,25 @@ import java.util.List;
 /**
  * Created by yjh on 16/9/25.
  */
-@ContextConfiguration(locations= {"/myBatis/spring/*.xml","/redis/redisCache.xml"})
-@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations= {"/myBatis/spring/*.xml","/redis/redisCache.xml"})
+//@RunWith(SpringJUnit4ClassRunner.class)
 public class Test2 {
+//
+//    @Autowired(required = false)
+//    @Qualifier("myService")
+//    private ServiceImpl serviceImpl;
 
-    @Autowired(required = false)
-    @Qualifier("myService")
-    private ServiceImpl serviceImpl;
-
-    @Test
-    public void testMyCollection(){
-
-        //Object userModel  = serviceImpl.getUser(2);
-        System.out.println(serviceImpl.selectClass2());
-        ;
+//    @Test
+//    public void testMyCollection(){
+//
+//        //Object userModel  = serviceImpl.getUser(2);
+//        System.out.println(serviceImpl.selectClass());
+//        ;
+//    }
+    public static void main(String[] args) {
+        ApplicationContext ct = new ClassPathXmlApplicationContext("/myBatis/spring/*.xml");
+        ServiceImpl  service = (ServiceImpl) ct.getBean("myService");
+        List<ClassModel> list = service.selectClass();
+        System.out.println(list.size());
     }
 }

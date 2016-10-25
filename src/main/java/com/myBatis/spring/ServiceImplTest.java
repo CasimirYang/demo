@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by yjh on 16/9/25.
  */
-@ContextConfiguration(locations= {"/myBatis/spring/*.xml","/redis/redisCache.xml"})
+@ContextConfiguration(locations= {"/myBatis/spring/*.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ServiceImplTest {
 

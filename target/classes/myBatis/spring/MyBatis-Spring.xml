@@ -4,9 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-    <bean id="redisBean" class="com.redis.RedisServiceImpl" >
-        <property name="serviceImpl" ref="myService" />
-    </bean>
+    <!--<bean id="redisBean" class="com.redis.RedisServiceImpl" >-->
+        <!--<property name="serviceImpl" ref="myService" />-->
+    <!--</bean>-->
 
 
     <bean id="myService" class="com.myBatis.spring.ServiceImpl">
