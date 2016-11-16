@@ -33,6 +33,6 @@ public class Test2 {
 
         //Object userModel  = serviceImpl.getUser(2);
         System.out.println(serviceImpl.selectClass2());
-        ;
+
     }
 }

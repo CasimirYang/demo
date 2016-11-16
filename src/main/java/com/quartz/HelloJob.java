@@ -1,6 +1,5 @@
 package com.quartz;
 
-import com.sun.javafx.tools.packager.Log;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
