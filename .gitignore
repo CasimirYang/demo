@@ -2,3 +2,5 @@
 untitled/
 *.iml
 *.class
+target/
+out/
