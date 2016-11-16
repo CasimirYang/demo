@@ -1,4 +1,4 @@
-package com.demo;
+package com.collections;
 
 import java.util.*;
 
