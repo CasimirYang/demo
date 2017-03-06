@@ -13,6 +13,7 @@ public class ExecutorTest {
         ExecutorService executorService = Executors.newCachedThreadPool(); //ThreadPoolExecutor
         executorService.execute(new Thread1()); //没有返回值
         executorService.submit(new Thread2()); //有返回值
+
         executorService.shutdown(); // ExecutorService会阻止了 JVM 的关闭, 需要手动关闭
         System.out.println("shutdown");
     }

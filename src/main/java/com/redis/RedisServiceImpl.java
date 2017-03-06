@@ -10,8 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by yjh on 16/10/1.
  */
 
+@Service
+@Transactional
 public class RedisServiceImpl implements RedisService {
 
+
+    @Autowired
     private ServiceImpl serviceImpl;
 
     public void setServiceImpl(ServiceImpl serviceImpl) {

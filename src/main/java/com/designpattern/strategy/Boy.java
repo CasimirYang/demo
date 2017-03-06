@@ -1,8 +1,12 @@
 package com.designpattern.strategy;
 
-import com.sun.javafx.tools.packager.Log;
+
+import org.apache.commons.logging.Log;
+
+import java.util.logging.Logger;
 
 public class Boy {
+    Logger logger = Logger.getLogger(Boy.class.getName());
     IStrategy iStrategy;
 
     public Boy(IStrategy iStrategy) {
@@ -10,12 +14,12 @@ public class Boy {
     }
 
     public void changeStrategy(IStrategy iStrategy){
-        Log.info("log");
+        logger.info("log");
         this.iStrategy = iStrategy;
     }
 
     public void chaseGirl(){
-        Log.info("change");
+        logger.info("change");
         iStrategy.execute();
     }
 

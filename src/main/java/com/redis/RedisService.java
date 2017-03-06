@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 
 
-@Transactional(propagation = Propagation.REQUIRED)
 @Service
 public interface RedisService {
 

@@ -28,6 +28,5 @@ public class RedisServiceTest{
             ApplicationContext context = new ClassPathXmlApplicationContext("/myBatis/spring/*.xml","/redis/redisCache.xml");
             RedisService serviceImpl = (RedisService) context.getBean("redisBean");
             serviceImpl.testTran(true);
-
         }
 }

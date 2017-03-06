@@ -7,7 +7,7 @@
     <groupId>groupId</groupId>
     <artifactId>casimir</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <packaging>war</packaging>
     <!--<parent>-->
         <!--<groupId>org.springframework.boot</groupId>-->
         <!--<artifactId>spring-boot-starter-parent</artifactId>-->
@@ -17,7 +17,61 @@
         <cxf.version>2.2.3</cxf.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <!--sent message-->
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-spring</artifactId>
+                <version>5.14.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webXml>web\WEB-INF\web.xml</webXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <!--<distributionManagement>-->
+        <!--<repository>-->
+            <!--<id>Core-API-Java-Release</id>-->
+            <!--<name>Release repository</name>-->
+            <!--<url>http://localhost:8081/nexus/content/repositories/-->
+                <!--Core-Api-Release</url>-->
+        <!--</repository>-->
+    <!--</distributionManagement>-->
+
+    <repositories>
+        <repository>
+            <id>java.net</id>
+            <url>http://mvnrepository.com/</url>
+        </repository>
+    </repositories>
+
 <dependencies>
+
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>20.0</version>
+    </dependency>
 
 
     <dependency>
@@ -105,11 +159,11 @@
         <version>4.3.3.RELEASE</version>
     </dependency>
 
+
     <!--sent message-->
     <dependency>
         <groupId>org.apache.activemq</groupId>
         <artifactId>activemq-spring</artifactId>
-        <version>5.14.0</version>
     </dependency>
 
     <dependency>

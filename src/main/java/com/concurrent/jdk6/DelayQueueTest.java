@@ -15,9 +15,12 @@ public class DelayQueueTest {
     public static void main(String[] args) throws IOException, InterruptedException {
         DelayQueue delayQueue = new DelayQueue();
         DelayedDemo delayedDemo = new DelayedDemo(5000); //deplay 设置的不是expire 时间， 设置的是延迟多久才可以执行的时间
-        delayQueue.put(delayedDemo);
-        System.out.println(delayQueue.take()); // 五秒后才可以使用
-        System.out.println(delayQueue.take()); //block
+        for (int i = 0; i < 10; i++) {
+            delayQueue.put(delayedDemo);
+        }
+        while (true){
+            System.out.println(delayQueue.take()); // 五秒后才可以使用
+        }
     }
 
 
@@ -26,12 +29,12 @@ public class DelayQueueTest {
 class DelayedDemo implements Delayed{
     private long delay;
     public DelayedDemo( long delay) {
-        this.delay = delay;
+        this.delay = delay+ System.currentTimeMillis();
     }
 
     @Override
     public long getDelay(TimeUnit unit) {
-        return unit.convert(delay, TimeUnit.MILLISECONDS);
+        return unit.convert(delay- System.currentTimeMillis(), TimeUnit.MILLISECONDS);
     }
 
     @Override

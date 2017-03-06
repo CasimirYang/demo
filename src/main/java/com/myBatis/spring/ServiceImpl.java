@@ -5,7 +5,6 @@ import com.myBatis.ClassMapper;
 import com.myBatis.ClassModel;
 import com.myBatis.UserMapper;
 import com.myBatis.UserModel;
-import com.sun.tools.internal.jxc.SchemaGenerator;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.ibatis.annotations.Mapper;
 import org.slf4j.Logger;

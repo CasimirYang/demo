@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <context:component-scan base-package="com.redis" />
 
-    <!--<bean id="redisBean" class="com.redis.RedisServiceImpl" >-->
-        <!--<property name="serviceImpl" ref="myService" />-->
+    <!--<bean id="myService" class="com.myBatis.spring.ServiceImpl">-->
+        <!--<property name="userMapper" ref="userMapper" />-->
+        <!--<property name="classMapper" ref="classMapper" />-->
     <!--</bean>-->
-
-
-    <bean id="myService" class="com.myBatis.spring.ServiceImpl">
-        <property name="userMapper" ref="userMapper" />
-        <property name="classMapper" ref="classMapper" />
-    </bean>
 
     <bean id="classMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.myBatis.ClassMapper" />
