@@ -1,7 +1,5 @@
 package com.designpattern.decorator;
 
-import sun.jvm.hotspot.utilities.ObjectReader;
-
 import java.io.*;
 
 /**
