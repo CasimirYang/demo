@@ -3,6 +3,7 @@ package com.hystrix;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandProperties;
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 
 /**
  * Created by Lenovo on 2017/9/12.
@@ -26,5 +27,17 @@ public class CommandUsingRequestCache extends HystrixCommand<Boolean> {
     @Override
     public String getCacheKey() {
         return String.valueOf(value);
+    }
+
+    public static void main(String[] args) {
+        HystrixRequestContext.initializeContext();
+        CommandUsingRequestCache command1 = new CommandUsingRequestCache(1);
+        CommandUsingRequestCache command2 = new CommandUsingRequestCache(1);
+
+        Boolean result = command1.execute();
+        System.out.println("result=" + result);
+
+        Boolean result2 = command2.execute();
+        System.out.println("result=" + result2);
     }
 }
