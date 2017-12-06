@@ -28,15 +28,16 @@ public class ReadWriteLockTest {
 
         @Override
         public void run() {
-            lock.lock();
             System.out.println("do some work");
             try {
+                lock.lock();
                 Thread.sleep(2000l);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }finally {
+                lock.unlock();
+                System.out.println("unlock");
             }
-            lock.unlock();
-            System.out.println("unlock");
         }
     }
 }

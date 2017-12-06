@@ -12,9 +12,7 @@ public class ExchangerTest {
 
         Thread a =new Thread(new ExchangerRunnable(exchanger,"cas"),"n1");
         new Thread(new ExchangerRunnable(exchanger,"CASI"),"n2").start();
-        System.out.println(a.isInterrupted());
         a.start();
-        Object A;
     }
 
 }
@@ -31,7 +29,7 @@ class ExchangerRunnable implements Runnable{
     @Override
     public void run() {
         try {
-            System.out.println("current thread name" + Thread.currentThread().getName() + " from value:" + value + " to " + exchanger.exchange(value));
+            System.out.println("current thread name " + Thread.currentThread().getName() + " from value:" + value + " to " + exchanger.exchange(value));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

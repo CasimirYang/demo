@@ -13,8 +13,8 @@ public class RunMain {
 
         //while (true){
             System.out.println("------------------------------------------------------");
-            CompletableFuture.runAsync(ThreadDemo::getInstance).runAsync(()->
-                    System.out.println("instance:"+ThreadDemo.threadDemo)).join();
+//            CompletableFuture.runAsync(ThreadDemo::getInstance).runAsync(()->
+//                    System.out.println("instance:"+ThreadDemo.threadDemo)).join();
             try {
                 Thread.sleep(200L);
             } catch (InterruptedException e) {
