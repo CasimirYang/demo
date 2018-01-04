@@ -45,7 +45,6 @@ public class Demo {
 
 
         CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-        //copyOnWriteArrayList.
 
         //ImmutableXXX.copyOf()        guava
         //Collections.unmodifiableXXX  jdk

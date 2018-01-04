@@ -1,5 +1,6 @@
 package com.concurrent;
 
+import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.StampedLock;
 
 public class StampedLockTest {
@@ -8,9 +9,17 @@ public class StampedLockTest {
 
     }
 
-    public static void main(String[] args) {
-        Point point = new Point();
-        point.getSum();
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread(()->{
+            LockSupport.park();
+            System.out.println("done inner");
+        });
+        t1.start();
+        t1.interrupt();
+        t1.join();
+        System.out.println("done all");
+        //done inner
+        //done all
     }
 
     static class Point{

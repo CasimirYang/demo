@@ -5,7 +5,7 @@ package com.demo;
  */
 public class Test {
     public static void main(String[] args){
-        GT<Integer> gti = new GT<Integer>();
+        GT<Integer> gti = new GT<>();
         gti.var=1;
         GT<String> gts = new GT<String>();
         gts.var=2;
