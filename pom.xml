@@ -67,6 +67,28 @@
 
 <dependencies>
 
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.41</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
+    <dependency>
+        <groupId>com.typesafe.akka</groupId>
+        <artifactId>akka-actor_2.12</artifactId>
+        <version>2.5.9</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-transactor -->
+    <dependency>
+        <groupId>com.typesafe.akka</groupId>
+        <artifactId>akka-transactor_2.11</artifactId>
+        <version>2.3.16</version>
+    </dependency>
+
+
+
     <!-- https://mvnrepository.com/artifact/com.netflix.eureka/eureka-client -->
     <dependency>
         <groupId>com.netflix.eureka</groupId>
