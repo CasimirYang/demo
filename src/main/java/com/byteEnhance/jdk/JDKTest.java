@@ -1,10 +1,12 @@
 package com.byteEnhance.jdk;
 
 import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * 限制：只能代理接口
+ */
 public class JDKTest {
 
     public interface Task {
@@ -19,16 +21,22 @@ public class JDKTest {
     }
 
     public static class MyInvocationHandler implements InvocationHandler {
+        //obj 被代理类
         private Object obj;
         MyInvocationHandler(Object obj) {
             this.obj = obj;
         }
+        //proxy: 代理类
         public Object invoke(Object proxy, Method m, Object[] args) throws Throwable {
             System.out.println("...Method Executing...");
             return m.invoke(obj, args);
         }
     }
-
+    
+    /**
+     * 使用Proxy.newProxyInstance 构建一个代理：
+     *          传入classLoader，接口，InvocationHandler
+     */
     public static class ProxyFactory {
         static Object newInstance(Object ob) {
             return Proxy.newProxyInstance(ob.getClass().getClassLoader(),
