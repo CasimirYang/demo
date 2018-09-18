@@ -17,7 +17,7 @@
         $.ajax({ url: "showUser.do?id=1", dataType:"json",context: document.body, success: function(data, textStatus){
           alert("--success--status:"+textStatus+"---data:"+data);
 //          var dataJson = JSON.parse(data);
-//var a = 1;
+//var a = 12;
 //          var name = dataJson.name;
         },error:function(data, textStatus){
           alert("--error--status:"+textStatus+"---data:"+data);
